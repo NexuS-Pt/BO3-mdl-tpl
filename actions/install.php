@@ -3,10 +3,12 @@
 if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
     $db = str_replace(
         [
+            "{c2r-mod-name}",
             "{c2r-mod-folder}",
             "{c2r-prefix}"
         ],
         [
+            $cfg->mdl->name,
             $cfg->mdl->folder,
             $cfg->db->prefix
         ],
