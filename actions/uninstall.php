@@ -31,7 +31,7 @@ if (isset($_POST["submitUninstall"]) && user::isOwner($authData)) {
 		[
 			'lg-message' => $lang["uninstall"]["failure"]
 		],
-		functions::mdl_load("templates-e/uninstall/message.htpl")
+		functions::mdl_load("templates-e/uninstall/message.tpl")
 	);
 }
 
