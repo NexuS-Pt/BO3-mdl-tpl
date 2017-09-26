@@ -2,6 +2,6 @@
 
 $mdl = "{c2r-plg-example}";
 
-functions::importPlg("example");
+// bo3::importPlg("example");
 
 include "pages/module-core.php";
