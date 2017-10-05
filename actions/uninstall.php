@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST["submitUninstall"]) && user::isOwner($authData)) {
-	$db = bo3::c2r(
+	$query = bo3::c2r(
 		[
 			'mod-folder' => $cfg->mdl->folder,
 			'prefix' => $cfg->db->prefix
@@ -9,8 +9,8 @@ if (isset($_POST["submitUninstall"]) && user::isOwner($authData)) {
 		bo3::mdl_load("db/uninstall.sql")
 	);
 
-	if ($mysqli->multi_query($db) != FALSE) {
-		while ($mysqli->more_results() && $mysqli->next_result()) {;} // flush multi_queries
+	if ($db->multi_query($query) != FALSE) {
+		while ($db->more_results() && $db->next_result()) {;} // flush multi_queries
 
 		$mdl = bo3::c2r(
 			[
@@ -21,7 +21,7 @@ if (isset($_POST["submitUninstall"]) && user::isOwner($authData)) {
 	} else {
 		$mdl = bo3::c2r(
 			[
-				'lg-message' => $lang["uninstall"]["failure"]." : ".$mysqli->error
+				'lg-message' => $lang["uninstall"]["failure"]." : ".$db->error
 			],
 			bo3::mdl_load("templates-e/uninstall/message.tpl")
 		);
