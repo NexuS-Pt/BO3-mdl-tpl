@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
-	$db = bo3::c2r(
+	$query = bo3::c2r(
 		[
 			'mod-name' => $cfg->mdl->name,
 			'mod-folder' => $cfg->mdl->folder,
@@ -10,8 +10,8 @@ if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
 		bo3::mdl_load("db/install.sql")
 	);
 
-	if ($mysqli->multi_query($db) != FALSE) {
-		while ($mysqli->more_results() && $mysqli->next_result()) {;} // flush multi_queries
+	if ($db->multi_query($query) != FALSE) {
+		while ($db->more_results() && $db->next_result()) {;} // flush multi_queries
 
 		$mdl = bo3::c2r(
 			[
