@@ -22,7 +22,7 @@ if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
 	} else {
 		$mdl = bo3::c2r(
 			[
-				'lg-message' => $lang["install"]["failure"]." : ".$mysqli->error,
+				'lg-message' => $lang["install"]["failure"]." : ".$db->error,
 			],
 			bo3::mdl_load("templates-e/install/message.tpl")
 		);
