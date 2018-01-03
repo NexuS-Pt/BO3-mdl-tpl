@@ -34,6 +34,6 @@ if ($a == null && $a != "install") {
 		include $pg_file;
 	} else {
 		// if doesn't exist an action response, system sent you to 404
-		header("Location: {$cfg->system->path_bo}/0/{$lg_s}/404/");
+		header("Location: {$cfg->system->path_bo}/{$lg_s}/404/");
 	}
 }
