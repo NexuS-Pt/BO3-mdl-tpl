@@ -23,7 +23,7 @@ if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
 		'lg-install' =>$lang["install"]["question"],
 		'lg-yes' => $lang["common"]["a-yes"],
 		'lg-no' => $lang["common"]["a-no"]
-    ], bo3::mdl_load("templates-e/install/form.tpl"));
+	], bo3::mdl_load("templates-e/install/form.tpl"));
 }
 
 include "pages/module-core.php";
