@@ -2,11 +2,11 @@
 
 $cfg->mdl = new stdClass();
 $cfg->mdl->name = "Example";
-$cfg->mdl->folder = "mod-example";
+$cfg->mdl->folder = "mod-0-example";
 $cfg->mdl->path = "{$cfg->system->path_bo}/modules/{$cfg->mdl->folder}/";
 $cfg->mdl->version = "0.0.1";
-$cfg->mdl->developer = "Carlos Santos";
-$cfg->mdl->contact = "carlos@one-shift.com";
+$cfg->mdl->developer = "Your Name Here";
+$cfg->mdl->contact = "your@email.here";
 $cfg->mdl->dbTables = ["example"];
 
 // load language for module

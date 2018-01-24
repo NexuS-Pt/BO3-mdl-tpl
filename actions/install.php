@@ -10,6 +10,19 @@ if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
 	if ($db->multi_query($query) != FALSE) {
 		while ($db->more_results() && $db->next_result()) {;} // flush multi_queries
 
+		/*
+			You can use Copy function to leave some files in some places of the backoffice
+			
+			copy(
+				"modules/{$cfg->mdl->folder}/install/class.0-example.php",
+				"class/class.0-example.php"
+			);
+			
+			Remember, this is the only place where you are permitted to do something like this.
+			Add to uninstall options to remove those files you add above.
+		*/
+		
+		
 		$mdl = bo3::c2r([
 			'lg-message' => $lang["install"]["success"]
 		], bo3::mdl_load("templates-e/install/message.tpl"));

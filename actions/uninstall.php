@@ -9,6 +9,14 @@ if (isset($_POST["submitUninstall"]) && user::isOwner($authData)) {
 	if ($db->multi_query($query) != FALSE) {
 		while ($db->more_results() && $db->next_result()) {;} // flush multi_queries
 
+		/*
+			Here you need to send commands to delete those files you copy on install
+			
+			unlink("class/class.0-example.php");
+			
+			This is mandatory. All copied files need to bee removed during the uninstall.
+		*/
+		
 		$mdl = bo3::c2r([
 			'lg-message' => $lang["uninstall"]["success"]
 		], bo3::mdl_load("templates-e/uninstall/message.tpl"));
